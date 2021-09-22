@@ -1,26 +1,30 @@
 <template>
   <div class="container mt-5 mb-5">
-    <div class="row">
+    <div v-if="!load" class="row">
       <div v-for="(album, index) in albumList" :key="index" class="my-col col-lg-3 col-md-4 col-sm-12 mt-4">
         <AlbumCard :alb="album" /> 
       </div>  
     </div>
+    <Loader v-else />
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import AlbumCard from './AlbumCard.vue'
+import Loader from './Loader.vue'
 
 export default {
   name: 'AlbumList',
   components: {
-    AlbumCard
+    AlbumCard,
+    Loader
   },
    data() {
     return {
       albumList: [],
-      APIUrl: 'https://flynn.boolean.careers/exercises/api/array/music'
+      APIUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
+      load: true
     }
   },
   created() {
@@ -33,6 +37,8 @@ export default {
           .then( result => {
             console.log(result.data.response);
             this.albumList = result.data.response;
+            // this.load = false;
+            setTimeout( () => {this.load = false; }, 5000);
           })
     }
   }
