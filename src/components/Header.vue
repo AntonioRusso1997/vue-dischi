@@ -1,6 +1,8 @@
 <template>
   <header>
+    <a href="/">
     <img src="https://www.wallpapertip.com/wmimgs/17-176153_download-logo-spotify-png.png" alt="Logo Spotify">
+    </a>
   </header>
 </template>
 
