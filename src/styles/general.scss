@@ -1,0 +1,24 @@
+// Generals
+
+//Importo Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//Importo Font
+@import '~@fontsource/roboto/index.css';
+@import '~@fontsource/roboto/700.css';
+
+//Importo variabili
+@import './vars';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $main-font;
+    background-color: $bg;
+    width: 100vw;
+    height: 100vh;
+}
