@@ -1,7 +1,7 @@
  <template>
   <div>
-  <Header />
-  <AlbumList />
+  <Header @performSelect="getGenre" />
+  <AlbumList :filterGen="selectedInput" />
   </div>
 </template>
 
@@ -14,6 +14,16 @@ export default {
   components: {
     Header,
     AlbumList
+  },
+  data() {
+    return {
+      selectedInput:""
+    }
+  },
+  methods: {
+    getGenre(text) {
+      this.selectedInput = text;
+    }
   }
 }
 </script>
